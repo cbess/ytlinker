@@ -1,11 +1,16 @@
 .clear {
     clear: both;
 }
-.field {
+html body {
+    margin: 8px;
+}
+#content .field {
     width: 300px;
     font-size: 18px;
     padding: 3px;
     margin: 5px;
+    height: auto;
+    line-height: auto;
 }
 a {
     text-decoration: none;
