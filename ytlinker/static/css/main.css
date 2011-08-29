@@ -1,0 +1,31 @@
+.clear {
+    clear: both;
+}
+.field {
+    width: 300px;
+    font-size: 18px;
+    padding: 3px;
+    margin: 5px;
+}
+a {
+    text-decoration: none;
+}
+a:link {
+    color: blue;
+}
+a:visited {
+    color: gray;
+}
+a:hover {
+    text-decoration: underline;
+}
+.result div {
+    float: left;
+}
+.result {
+    height: 50px;
+}
+.result .link {
+    margin: 20px 0 0 10px;
+    font-weight: bold;
+}
