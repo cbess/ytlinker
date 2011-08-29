@@ -3,10 +3,11 @@
 }
 html body {
     margin: 8px;
+    font-size: 15px;
 }
 #content .field {
     width: 300px;
-    font-size: 18px;
+    font-size: 19px;
     padding: 3px;
     margin: 5px;
     height: auto;
