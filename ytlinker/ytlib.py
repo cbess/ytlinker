@@ -1,11 +1,14 @@
 import gdata.youtube
 import gdata.youtube.service
 import gdata.alt.appengine
-
+from ytlinker import settings
 
 class YTLinkSearch(object):
     def __init__(self):
         self.client = gdata.youtube.service.YouTubeService()
+        self.client.client_id = settings.YT_CLIENT_ID
+        self.client.developer_key = settings.YT_DEV_KEY
+        gdata.alt.appengine.run_on_appengine(self.client)
         pass
         
     def search(self, author, **kwargs):
