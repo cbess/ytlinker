@@ -5,5 +5,34 @@
 {% endblock %}
 
 {% block content %}
-  Content here
+<form action="/search" method="post">
+  <div>
+    <label for="author">YT Username</label>
+    <input type="text" name="author" value="{{ author }}" id="author">
+  </div>
+
+  <div>
+    <label for="filter">Filter</label>
+    <input type="text" name="filter" value="{{ filter_string }}" id="filter">
+  </div>
+
+  <div>
+    <input type="submit" name="submit" value="GO" id="submit">
+  </div>
+</form>
+
+<div id="results">
+  <strong>{{ results|count }} Results</strong>
+  
+  {% for result in results %}
+  <div class="result">
+      <div class="thumbnail">
+        <img width="50" src="{{ result.media.thumbnail[0].url }}" />
+      </div>
+      <div class="link">
+        <a href="{{ result.GetHtmlLink().href }}">{{ result.title.text }}</a>
+      </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}

@@ -6,7 +6,7 @@
     <body id="">
         <div id="content">
         {% block content %}
-
+            Content here
         {% endblock %}
         </div>
     </body>
