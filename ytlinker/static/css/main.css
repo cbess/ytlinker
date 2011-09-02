@@ -5,12 +5,19 @@ html body {
     margin: 8px;
     font-size: 15px;
 }
+#content {
+    width: 550px;
+    margin: 0 auto;
+}
 #content .field {
     width: 300px;
     font-size: 19px;
     padding: 3px;
     margin: 5px;
     height: auto;
+}
+#content form .primary {
+    width: 100px;
 }
 a {
     text-decoration: none;
@@ -32,5 +39,18 @@ a:hover {
 }
 .result .link {
     margin: 20px 0 0 10px;
+    font-weight: bold;
+}
+#past-searches {
+    width: 250px;
+    height: 100px;
+    overflow: auto;
+    margin: 10px auto;
+}
+#past-searches li {
+    list-style: none;
+}
+#past-searches .author {
+    color: black;
     font-weight: bold;
 }

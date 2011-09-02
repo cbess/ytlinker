@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from ytlinker import app
 from ytlinker import ytlib
-from flask import render_template, request, url_for
+from flask import render_template, request, url_for, session
+from ytlinker import utils
 
 
 @app.route('/static/*')
@@ -38,11 +39,13 @@ def search():
     # perform the search
     linker = ytlib.YTLinkSearch()
     feed = linker.search(author, filter_string=filter_string)
+    search_list = utils.store_search(author, filter_string)
     # build response
     response = {
         "results" : feed.entry,
         "author" : author,
         "filter_string" : filter_string,
-        "title" : u"%s - YT Search" % filter_string
+        "title" : u"%s - YT Search" % filter_string,
+        "searches" : session['searches']
     }
     return render_template('index.html', **response)

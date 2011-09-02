@@ -25,12 +25,25 @@
            value="{{ filter_string }}" 
            id="filter">
   </div>
-
+  <div align='center'>
     <input type="submit" 
            value="Search" 
            class="btn primary"
            id="submit">
+  </div>
 </form>
+
+<div id="past-searches">
+  {% for author in searches %}
+    <ul><span class="author">{{ author }}</span>
+    {% for query in searches[author] %}
+      <li>
+        <a href="/search?author={{ author }}&filter={{ query }}">{{ query }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</div>
 
 <div id="results">
   <strong>{{ results|count }} Results</strong>
