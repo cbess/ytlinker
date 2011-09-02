@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from ytlinker import app
 from ytlinker import ytlib
 from flask import render_template, request, url_for
@@ -18,7 +19,7 @@ def index():
     """Handles index requests
     """
     response = {
-        "title" : "Welcome"
+        "title" : u"Welcome"
     }
     return render_template('index.html', **response)
     
@@ -42,6 +43,6 @@ def search():
         "results" : feed.entry,
         "author" : author,
         "filter_string" : filter_string,
-        "title" : "%s - YT Search" % filter_string
+        "title" : u"%s - YT Search" % filter_string
     }
     return render_template('index.html', **response)

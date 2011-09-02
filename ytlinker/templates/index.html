@@ -40,7 +40,9 @@
           <img width="75" src="{{ result.media.thumbnail[0].url }}" />
         </div>
         <div class="link">
-          <a href="{{ result.GetHtmlLink().href }}">{{ result.title.text }}</a>
+          <span>
+            {{ result.title.text.decode('utf-8') }}
+          </span>
         </div>
     </div>
   </a>

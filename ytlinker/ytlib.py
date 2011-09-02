@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import gdata.youtube
 import gdata.youtube.service
 import gdata.alt.appengine
@@ -25,4 +26,3 @@ class YTLinkSearch(object):
         query.orderby = kwargs.get('order_by', 'relevance')
         feed = self.client.YouTubeQuery(query)
         return feed
-
