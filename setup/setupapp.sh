@@ -21,4 +21,10 @@ curl -o simplejson.tar.gz http://pypi.python.org/packages/source/s/simplejson/si
 tar -xvzf simplejson.tar.gz
 cp -r simplejson*/simplejson ../
 
-echo "done grabbing and copying flask dependencies"
+echo grabbing gdata
+curl -o gdata.zip http://gdata-python-client.googlecode.com/files/gdata-2.0.14.zip
+unzip gdata.zip
+cp -r gdata-*/src ../
+
+
+echo "done grabbing gdata and flask dependencies"
