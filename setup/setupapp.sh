@@ -1,4 +1,5 @@
 #!/bin/sh
+# this script should be run from the setup directory (ex: /my-app/setup)
 # ref: http://www.franciscosouza.com/2010/08/flying-with-flask-on-google-app-engine/
 
 echo grabbing flask
