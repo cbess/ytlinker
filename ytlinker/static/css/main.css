@@ -28,18 +28,23 @@ a:link {
 a:visited {
     color: gray;
 }
-a:hover {
-    text-decoration: underline;
+#results a:hover {
+    text-decoration: none;
+}
+div.result:hover {
+    background-color: #efefef;
+    border-radius: 5px;
 }
 .result div {
     float: left;
 }
 .result {
-    height: 50px;
+    height: 55px;
 }
 .result .link {
     margin: 20px 0 0 10px;
     font-weight: bold;
+    width: 450px;
 }
 #past-searches {
     width: 250px;

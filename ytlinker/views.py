@@ -36,16 +36,26 @@ def search():
         form = request.args
     author = form.get('author')
     filter_string = form.get('filter')
+    start = form.get('start')
+    max_results = int(form.get('max', 50))
     # perform the search
     linker = ytlib.YTLinkSearch()
-    feed = linker.search(author, filter_string=filter_string)
+    feed = linker.search(
+        author, 
+        filter_string=filter_string, 
+        start_index=start, 
+        max_results=max_results
+    )
     search_list = utils.store_search(author, filter_string)
+    results = feed.entry
+    results_count = len(results)
     # build response
     response = {
-        "results" : feed.entry,
+        "results" : results,
+        "results_count" : results_count,
         "author" : author,
         "filter_string" : filter_string,
-        "title" : u"%s - YT Search" % filter_string,
+        "title" : u"%s - YT Search" % (filter_string or author,),
         "searches" : session['searches']
     }
     return render_template('index.html', **response)

@@ -15,14 +15,22 @@ class YTLinkSearch(object):
     def search(self, author, **kwargs):
         """Searches for videos assigned to the specified author
         @param kwargs: {
-            "filter_string" : search filter string
+            "filter_string" : search filter string,
+            "max_results" : max result count,
+            "order_by" : sort order of results,
+            "start_index" : start index of the search
         }
         @return yt feed object
         """
         query = gdata.youtube.service.YouTubeVideoQuery()
         query.author = author
-        query.vq = kwargs.get('filter_string', '')
+        filter_string = kwargs.get('filter_string')
+        if filter_string:
+            query.vq = filter_string
         query.max_results = kwargs.get('max_results', 20)
-        query.orderby = kwargs.get('order_by', 'relevance')
+        query.orderby = kwargs.get('order_by', 'published')
+        start_index = kwargs.get('start_index')
+        if start_index:
+            query.start_index = start_index
         feed = self.client.YouTubeQuery(query)
         return feed

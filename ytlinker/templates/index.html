@@ -46,13 +46,13 @@
 </div>
 
 <div id="results">
-  <strong>{{ results|count }} Results</strong>
+  <strong>{{ results_count }} Results</strong>
   
   {% for result in results %}
   <a href="{{ result.GetHtmlLink().href }}">
     <div class="result">
         <div class="thumbnail">
-          <img width="75" src="{{ result.media.thumbnail[0].url }}" />
+          <img height="55" src="{{ result.media.thumbnail[0].url }}" />
         </div>
         <div class="link">
           <span>
