@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# ref: http://code.google.com/apis/youtube/2.0/reference.html#Video_Feeds
 import gdata.youtube
 import gdata.youtube.service
 import gdata.alt.appengine
