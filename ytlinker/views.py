@@ -24,6 +24,9 @@ def search():
         form = request.form
     else:
         form = request.args
+    if not form:
+        response = { "searches" : session.get('searches', []) }
+        return render_template('index.html', **response)
     author = form.get('author')
     filter_string = form.get('filter')
     start = form.get('start')

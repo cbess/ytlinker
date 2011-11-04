@@ -15,6 +15,7 @@
            autocorrect="off"
            value="{{ author }}" 
            id="author">
+    <a href="javascript:" field="#author" class="clear">clear</a>
   </div>
 
   <div>
@@ -24,12 +25,14 @@
            name="filter" 
            value="{{ filter_string }}" 
            id="filter">
+    <a href="javascript:" field="#filter" class="clear">clear</a>
   </div>
   <div align='center'>
     <input type="submit" 
            value="Search" 
            class="btn primary"
            id="submit">
+    <a href="javascript:" field='#author, #filter' class='clear'>clear</a>
   </div>
 </form>
 
@@ -45,6 +48,7 @@
   {% endfor %}
 </div>
 
+{% if results %}
 <div id="results">
   <strong>{{ results_count }} Results</strong>
   
@@ -64,4 +68,5 @@
   <br class="clear" />
   {% endfor %}
 </div>
+{% endif %}
 {% endblock %}
