@@ -5,16 +5,6 @@ from flask import render_template, request, url_for, session
 from ytlinker import utils
 
 
-@app.route('/static/*')
-def static_files():
-    """Handles static files requests
-    """
-    endswith = request.path.endswith
-    if endswith('main.css'):
-        return url_for('static', filename='css/main.css')
-    return ''
-    
-
 @app.route('/')
 def index():
     """Handles index requests
@@ -46,9 +36,11 @@ def search():
         start_index=start, 
         max_results=max_results
     )
-    search_list = utils.store_search(author, filter_string)
     results = feed.entry
     results_count = len(results)
+    # no results, then don't store it
+    if results:
+        utils.store_search(author, filter_string)
     # build response
     response = {
         "results" : results,
@@ -56,6 +48,6 @@ def search():
         "author" : author,
         "filter_string" : filter_string,
         "title" : u"%s - YT Search" % (filter_string or author,),
-        "searches" : session['searches']
+        "searches" : session.get('searches', [])
     }
     return render_template('index.html', **response)

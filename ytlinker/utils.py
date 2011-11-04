@@ -3,6 +3,7 @@ from flask import session
 
 def store_search(author, search_string):
     """Stores the author and search string in the user session
+    :return: List of search strings for the specified author
     """
     if not session.get('searches'):
         session['searches'] = dict()
