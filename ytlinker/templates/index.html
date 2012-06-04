@@ -41,7 +41,7 @@
     <ul><span class="author">{{ author }}</span>
     {% for query in searches[author] %}
       <li>
-        <a href="/search?author={{ author }}&filter={{ query }}">{{ query }}</a>
+        <a href="/search?author={{ author }}&filter={{ query }}">{{ query|default(author+" (no filter)", true) }}</a>
       </li>
     {% endfor %}
   </ul>
@@ -53,18 +53,24 @@
   <strong>{{ results_count }} Results</strong>
   
   {% for result in results %}
-  <a href="{{ result.GetHtmlLink().href }}">
     <div class="result">
         <div class="thumbnail">
-          <img height="55" src="{{ result.media.thumbnail[0].url }}" />
+          <!-- <iframe id="ytplayer" 
+                            type="text/html" 
+                            width="640" 
+                            height="390"
+                            src="{{ result.media.player.url }}"
+                            frameborder="0"></iframe> -->
+            <iframe class="youtube-player" type="text/html" width="550" height="385" 
+            src="http://www.youtube.com/embed/{{ result.media.videoid }}" frameborder="0">
+            </iframe>
         </div>
         <div class="link">
-          <span>
+          <a href="{{ result.GetHtmlLink().href }}">
             {{ result.title.text.decode('utf-8') }}
-          </span>
+          </a>
         </div>
     </div>
-  </a>
   <br class="clear" />
   {% endfor %}
 </div>
